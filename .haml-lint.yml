@@ -1,0 +1,21 @@
+linters:
+  LineLength:
+    max: 110
+    exclude:
+      - "app/views/**_mailer/**"
+      - app/views/layouts/**mailer**
+
+  InlineStyles:
+    enabled: true
+    exclude:
+      - app/views/layouts/**
+      - "app/views/**_mailer/**"
+
+  ViewLength:
+    exclude:
+      - app/views/shared/_side_bar.html.haml
+
+  Rubocop:
+    Style/StringLiterals:
+      enabled: true
+      EnforcedStyle: double_quotes

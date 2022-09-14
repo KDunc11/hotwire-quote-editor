@@ -1,0 +1,49 @@
+AllCops:
+  TargetRubyVersion: 3.0
+  Exclude:
+    - bin/*
+    - channels/application_cable/*
+    - config/deploy/*
+    - config/environments/*
+    - config/initializers/*
+    - config/puma*
+    - config/routes.rb
+    - config/secrets*
+    - config/sidekiq*
+    - db/migrate/*
+    - db/schema.rb
+    - Gemfile
+    - Gemfile.lock
+    - Guardfile
+    - lib/capistrano/**/*
+    - node_modules/**/*
+    - vendor/*
+  NewCops: enable
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/ModuleLength:
+  Exclude:
+    - app/helpers/secondary_nav_helper.rb
+    - app/helpers/breadcrumb_helper.rb
+
+Metrics/AbcSize:
+  Exclude:
+    - app/helpers/secondary_nav_helper.rb
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/OptionalBooleanParameter:
+  Enabled: false
+
+require: rubocop-rails
+
+Rails/I18nLocaleTexts:
+  Enabled: false
