@@ -1,0 +1,5 @@
+.quote
+  = link_to quote.name, quote_path(quote.oid)
+  .quote__actions
+    = render(Button::EditComponent.new(link_path: edit_quote_path(quote.oid)))
+    = render(Button::DeleteComponent.new(link_path: quote_path(quote.oid)))

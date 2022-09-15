@@ -10,8 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_14_222342) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "quotes", force: :cascade do |t|
+    t.string "oid", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_quotes_on_name", unique: true
+    t.index ["oid"], name: "index_quotes_on_oid", unique: true
+  end
+
+  create_table "tokens", force: :cascade do |t|
+    t.string "token", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "available_for_quote", default: true
+    t.index ["available_for_quote"], name: "index_tokens_on_available_for_quote"
+    t.index ["token"], name: "index_tokens_on_token", unique: true
+  end
 
 end

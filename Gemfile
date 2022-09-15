@@ -53,12 +53,19 @@ gem "bootsnap", require: false
 
 gem "haml"
 gem "haml-rails"
+gem "view_component"
+gem "active_storage_validations"
+gem "simple_form"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "byebug", platforms: %i[mri mingw x64_mingw]
+  gem "pry-byebug"
   gem "rubocop"
   gem "rubocop-rails"
+  gem "rubocop-performance"
+  gem "rspec-rails"
+  gem "solargraph"
 end
 
 group :development do
@@ -77,6 +84,12 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem "factory_bot_rails"
+  gem "faker"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "rubocop-rspec"
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
+  gem "webmock"
 end

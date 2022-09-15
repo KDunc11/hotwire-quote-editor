@@ -1,0 +1,7 @@
+%main.container
+  = link_to sanitize("&larr; Back to Quotes"), quotes_path
+
+  .header
+    %h1 Edit Quote
+
+  = render partial: "form", locals: { quote: @quote, url: quote_path(@quote.oid), method: :patch }
