@@ -3,4 +3,5 @@
     %h1 Quotes
     = link_to "New Quote", new_quote_path, class: "btn btn--primary"
 
-  = render(QuoteComponent.with_collection(@quotes))
+  .stack
+    = render(QuoteComponent.with_collection(@quotes))

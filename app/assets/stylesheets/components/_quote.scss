@@ -7,7 +7,6 @@
   background-color: var(--color-white);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-small);
-  margin-bottom: var(--space-m);
   padding: var(--space-xs);
 
   @include media(tabletAndUp) {
