@@ -43,7 +43,8 @@ Style/StringLiterals:
 Style/OptionalBooleanParameter:
   Enabled: false
 
-require: rubocop-rails
-
+require:
+  - rubocop-rails
+  - rubocop-performance
 Rails/I18nLocaleTexts:
   Enabled: false

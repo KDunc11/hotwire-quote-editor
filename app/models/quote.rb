@@ -1,5 +1,9 @@
+# frozen_string_literal: true
+
 class Quote < ApplicationRecord
   validates :name, presence: true, uniqueness: true
+
+  scope :ordered, -> { order(id: :desc) }
 
   before_create :set_oid
   before_create :update_token

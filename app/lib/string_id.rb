@@ -2,7 +2,7 @@
 
 class StringId
   # Load blocklisted words from CSV into an iterable data structure
-  BLOCKLIST = File.read(Rails.root.join("lib/assets/blocklist_words.csv")).split('\n')
+  BLOCKLIST = Rails.root.join("lib/assets/blocklist_words.csv").read.split('\n')
   # require 'csv' #if you have a more complicated CSV setup
   # BLOCKLIST = CSV.parse(@blocklist, :headers => true, :encoding => 'ISO-8859-1')
 

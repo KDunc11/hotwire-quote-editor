@@ -1,7 +1,2 @@
-%main.container
-  = link_to sanitize("&larr; Back to Quotes"), quotes_path
-
-  .header
-    %h1 New Quote
-
+=  turbo_frame_tag "new_quote" do
   = render partial: "form", locals: { quote: @quote, url: quotes_path, method: :post }

@@ -1,0 +1,17 @@
+AllCops:
+  TargetRubyVersion: 3.0
+  DisabledByDefault: true
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec

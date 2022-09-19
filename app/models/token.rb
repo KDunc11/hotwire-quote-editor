@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Token < ApplicationRecord
   validates :token, presence: true, uniqueness: true
 

@@ -4,6 +4,7 @@ class Button::EditComponent < ViewComponent::Base
   attr_accessor :link_path
 
   def initialize(link_path:)
+    super
     @link_path = link_path
   end
 end

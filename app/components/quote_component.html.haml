@@ -1,5 +1,6 @@
-.quote
-  = link_to quote.name, quote_path(quote.oid)
-  .quote__actions
-    = render(Button::EditComponent.new(link_path: edit_quote_path(quote.oid)))
-    = render(Button::DeleteComponent.new(link_path: quote_path(quote.oid)))
+= turbo_frame_tag dom_id(quote) do
+  .quote
+    = link_to quote.name, quote_path(quote.oid), data: { turbo_frame: "_top" }
+    .quote__actions
+      = render(Button::EditComponent.new(link_path: edit_quote_path(quote.oid)))
+      = render(Button::DestroyComponent.new(link_path: quote_path(quote.oid)))

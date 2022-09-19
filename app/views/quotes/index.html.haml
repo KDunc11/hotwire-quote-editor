@@ -1,7 +1,9 @@
 %main.container
   .header
     %h1 Quotes
-    = link_to "New Quote", new_quote_path, class: "btn btn--primary"
+    = link_to "New Quote", new_quote_path, data: { turbo_frame: dom_id(Quote.new) }, class: "btn btn--primary"
 
-  .stack
+
+  = turbo_frame_tag "quotes", class: "stack" do
+    = turbo_frame_tag Quote.new
     = render(QuoteComponent.with_collection(@quotes))
