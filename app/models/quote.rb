@@ -6,7 +6,16 @@ class Quote < ApplicationRecord
   scope :ordered, -> { order(id: :desc) }
 
   before_create :set_oid
-  before_create :update_token
+  after_create :update_token
+
+  # rubocop:disable Metrics/LineLength
+  # after_create_commit -> { broadcast_prepend_to "quotes", html: ApplicationController.render(QuoteComponent.new(quote: self)) }
+  # after_update_commit -> { broadcast_replace_to "quotes", html: ApplicationController.render(QuoteComponent.new(quote: self)) }
+  # after_destroy_commit -> { broadcast_replace_to "quotes", html: ApplicationController.render(QuoteComponent.new(quote: self)) }
+  # rubocop:enable Metrics/LineLength
+
+  # The following is the same as the 3 lines above
+  broadcasts_to ->(_quote) { "quotes" }, inserts_by: :prepend
 
   private
 
