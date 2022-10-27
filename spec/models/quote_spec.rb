@@ -9,7 +9,8 @@ RSpec.describe Quote, type: :model do
   describe "#is_valid?" do
     subject { quote.valid? }
 
-    let(:quote) { build(:quote, name: name) }
+    let(:company) { create(:company) }
+    let(:quote) { build(:quote, company: company, name: name) }
     let(:name) { Faker::TvShows::RickAndMorty.quote }
 
     context "when name is not present" do
@@ -30,10 +31,16 @@ RSpec.describe Quote, type: :model do
       end
 
       context "when name is not unique" do
-        before { create(:quote, name: name) }
+        before { create(:quote, company: company, name: name) }
 
         it { is_expected.to be false }
       end
+    end
+
+    context "when company is not present" do
+      let(:company) { nil }
+
+      it { is_expected.to be false }
     end
   end
 end

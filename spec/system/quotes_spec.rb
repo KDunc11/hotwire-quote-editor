@@ -3,10 +3,12 @@
 require "rails_helper"
 
 RSpec.describe "Quotes", type: :system do
-  let(:quote) { create(:quote) }
+  let(:company) { create(:company) }
+  let(:user) { create(:user, password: "password", company: company) }
+  let(:quote) { create(:quote, company: company) }
 
   before do
-    quote
+    sign_in user
   end
 
   it "creates a new quote" do

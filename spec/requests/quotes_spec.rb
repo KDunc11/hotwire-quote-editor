@@ -5,8 +5,15 @@ require "rails_helper"
 RSpec.describe "/quotes", type: :request do
   let(:attributes) { { name: name } }
 
+  let(:company) { create(:company) }
   let(:name) { Faker::TvShows::RickAndMorty.quote }
-  let(:quote) { create(:quote, name: name) }
+  let(:quote) { create(:quote, company: company, name: name) }
+
+  let(:user) { create(:user, password: "password", company: company) }
+
+  before do
+    sign_in user
+  end
 
   describe "GET #index" do
     it "renders a successful response" do

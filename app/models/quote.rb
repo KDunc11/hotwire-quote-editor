@@ -3,6 +3,8 @@
 class Quote < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
+  belongs_to :company
+
   scope :ordered, -> { order(id: :desc) }
 
   before_create :set_oid
@@ -15,7 +17,7 @@ class Quote < ApplicationRecord
   # rubocop:enable Metrics/LineLength
 
   # The following is the same as the 3 lines above
-  broadcasts_to ->(_quote) { "quotes" }, inserts_by: :prepend
+  broadcasts_to ->(quote) { [quote.company, "quotes"] }, inserts_by: :prepend
 
   private
 

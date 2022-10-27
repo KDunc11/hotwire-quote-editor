@@ -2,7 +2,7 @@
 
 class QuotesController < ApplicationController
   def index
-    @quotes = quote_scope.ordered
+    @quotes = current_company.quotes.ordered
   end
 
   def show
@@ -65,6 +65,6 @@ class QuotesController < ApplicationController
   end
 
   def quote_scope
-    Quote.all
+    current_company.quotes
   end
 end

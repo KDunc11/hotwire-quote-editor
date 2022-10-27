@@ -18,11 +18,8 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require "rspec/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 require "active_storage_validations/matchers"
-# require "devise/jwt/test_helpers"
 require "capybara/rspec"
 require "capybara/rails"
-# require "pundit/rspec"
-# require "pundit/matchers"
 # require "sidekiq/testing"
 require "shoulda-matchers"
 require "view_component/test_helpers"
@@ -56,8 +53,8 @@ end
 
 RSpec.configure do |config|
   config.include ActiveStorageValidations::Matchers
-  # config.include Devise::Test::IntegrationHelpers, type: :request
-  # config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :system
   config.include FactoryBot::Syntax::Methods
   config.include Rails.application.routes.url_helpers
   config.include ViewComponent::TestHelpers, type: :component

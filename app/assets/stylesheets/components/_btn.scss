@@ -33,6 +33,25 @@
       color: var(--color-white);
       filter: saturate(1.4) brightness(115%);
     }
+
+    &-ghost {
+      background-color: transparent;
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+
+      &:hover,
+      &:focus,
+      &:focus-within,
+      &:active {
+        color: var(--color-white);
+        background-image: linear-gradient(
+          to right,
+          var(--color-primary),
+          var(--color-primary-rotate)
+        );
+        filter: saturate(1.4) brightness(115%);
+      }
+    }
   }
 
   &--secondary {
@@ -50,6 +69,25 @@
       color: var(--color-white);
       filter: saturate(1.2) brightness(110%);
     }
+
+    &-ghost {
+      background-color: transparent;
+      border-color: var(--color-secondary);
+      color: var(--color-secondary);
+
+      &:hover,
+      &:focus,
+      &:focus-within,
+      &:active {
+        color: var(--color-white);
+        background-image: linear-gradient(
+          to right,
+          var(--color-secondary),
+          var(--color-secondary-rotate)
+        );
+        filter: saturate(1.2) brightness(110%);
+      }
+    }
   }
 
   &--light {
@@ -63,6 +101,21 @@
       color: var(--color-dark);
       filter: brightness(92%);
     }
+
+    &-ghost {
+      background-color: transparent;
+      border-color: var(--color-light);
+      color: var(--color-light);
+
+      &:hover,
+      &:focus,
+      &:focus-within,
+      &:active {
+        color: var(--color-dark);
+        background-color: var(--color-light);
+        filter: brightness(92%);
+      }
+    }
   }
 
   &--dark {
@@ -75,6 +128,20 @@
     &:focus-within,
     &:active {
       color: var(--color-white);
+    }
+
+    &-ghost {
+      background-color: transparent;
+      border-color: var(--color-dark);
+      color: var(--color-dark);
+
+      &:hover,
+      &:focus,
+      &:focus-within,
+      &:active {
+        color: var(--color-white);
+        background-color: var(--color-dark);
+      }
     }
   }
 }
